@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from common.log import logger
 from common.base_page import BasePage
 from common.element_data_utils import ElementdataUtils
+from common.browser_utils import BrowserUtils
 
 class LoginPage(BasePage):
     def __init__(self,driver):
@@ -48,9 +49,10 @@ class LoginPage(BasePage):
         self.click(self.click_login)
 
 if __name__=='__main__':
-    current_path = os.path.dirname(__file__)
-    driver_path = os.path.join(current_path,'../webdriver/chromedriver.exe')
-    driver = webdriver.Chrome(executable_path=driver_path)
+    # current_path = os.path.dirname(__file__)
+    # driver_path = os.path.join(current_path,'../webdriver/chromedriver.exe')
+    # driver = webdriver.Chrome(executable_path=driver_path)
+    driver = BrowserUtils().get_chrome_driver()
     loginpage = LoginPage(driver)
     loginpage.open_url('http://localhost/DBshop/admin')
     loginpage.input_usernames('admin')
