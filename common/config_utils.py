@@ -22,6 +22,10 @@ class ConfigUtils:
         value = self.read_ini('default','driver_path')
         return value
 
+    @property
+    def driver_type(self):
+        value = self.read_ini('default','driver_type')
+        return value
 
 Config = ConfigUtils()
 if __name__=='__main__':

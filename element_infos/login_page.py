@@ -52,7 +52,7 @@ if __name__=='__main__':
     # current_path = os.path.dirname(__file__)
     # driver_path = os.path.join(current_path,'../webdriver/chromedriver.exe')
     # driver = webdriver.Chrome(executable_path=driver_path)
-    driver = BrowserUtils().get_chrome_driver()
+    driver = BrowserUtils().get_driver_type()
     loginpage = LoginPage(driver)
     loginpage.open_url('http://localhost/DBshop/admin')
     loginpage.input_usernames('admin')

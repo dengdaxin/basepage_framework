@@ -5,6 +5,8 @@ from element_infos.login_page import LoginPage
 from common.log import logger
 from common.base_page import BasePage
 from common.element_data_utils import ElementdataUtils
+from common.browser_utils import BrowserUtils
+
 current_path = os.path.dirname(__file__)
 driver_path = os.path.join(current_path,'../webdriver/chromedriver.exe')
 
@@ -50,7 +52,7 @@ class MainPage(BasePage):
 
 
 if __name__=='__main__':
-    driver = webdriver.Chrome(executable_path=driver_path)
+    driver = BrowserUtils().get_driver_type()
     mainpage = MainPage(driver)
     text = mainpage.get_count_text()
     print(text)
