@@ -48,7 +48,7 @@ class BasePage(object):
             locator_type = By.CSS_SELECTOR
         elif locator_type_name == 'link':
             locator_type = By.LINK_TEXT
-        elif locator_type_name == 'tagname':
+        elif locator_type_name == 'tag_name':
             locator_type = By.TAG_NAME
         elif locator_type_name == 'name':
             locator_type = By.NAME
@@ -66,6 +66,11 @@ class BasePage(object):
         element.send_keys(content)
         logger.info('[%s]元素输入内容成功，输入的内容是：%s' % (element_info['element_name'],content) )
 
+    def get_text(self,element_info):
+        element = self.find_element(element_info)
+        text = element.text
+        logger.info('获取元素文本，文本为%s'% text)
+        return text
     # def input(self, element_info, content):
     #     try:
     #         element = self.find_element(element_info)
