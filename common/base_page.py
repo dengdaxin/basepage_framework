@@ -45,16 +45,18 @@ class BasePage(object):
         elif locator_type_name == 'xpath':
             locator_type = By.XPATH
         element = WebDriverWait(self.driver, locator_timeout).until(lambda x: x.find_element(locator_type, locator_value_info))
+        logger.info('[%s]元素识别成功' % element_info['element_name'] )
         return element
 
     def click(self,element_info):
         element = self.find_element(element_info)
         element.click()
+        logger.info('[%s]元素点击操作成功' % element_info['element_name'])
 
     def input(self,element_info,content):
         element = self.find_element(element_info)
         element.send_keys(content)
-        logger.info('输入框输入：%s' % content)
+        logger.info('[%s]元素输入内容成功，输入的内容是：%s' % (element_info['element_name'],content) )
 
     # def input(self, element_info, content):
     #     try:
