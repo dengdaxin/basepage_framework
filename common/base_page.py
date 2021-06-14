@@ -44,6 +44,14 @@ class BasePage(object):
             locator_type = By.CLASS_NAME
         elif locator_type_name == 'xpath':
             locator_type = By.XPATH
+        elif locator_type_name == 'css':
+            locator_type = By.CSS_SELECTOR
+        elif locator_type_name == 'link':
+            locator_type = By.LINK_TEXT
+        elif locator_type_name == 'tagname':
+            locator_type = By.TAG_NAME
+        elif locator_type_name == 'name':
+            locator_type = By.NAME
         element = WebDriverWait(self.driver, locator_timeout).until(lambda x: x.find_element(locator_type, locator_value_info))
         logger.info('[%s]元素识别成功' % element_info['element_name'] )
         return element
