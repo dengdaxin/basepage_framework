@@ -27,6 +27,11 @@ class ConfigUtils:
         value = self.read_ini('default','driver_type')
         return value
 
+    @property
+    def time_out(self):
+        value = float(self.read_ini('default','time_out'))
+        return value
+
 Config = ConfigUtils()
 if __name__=='__main__':
     config_utils_obj = Config

@@ -1,14 +1,11 @@
 import os
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from element_infos.login_page import LoginPage
-from common.log import logger
+from element_infos.login.login_page import LoginPage
 from common.base_page import BasePage
 from common.element_data_utils import ElementdataUtils
 from common.browser_utils import BrowserUtils
 
 current_path = os.path.dirname(__file__)
-driver_path = os.path.join(current_path,'../webdriver/chromedriver.exe')
+driver_path = os.path.join(current_path, '../../webdriver/chromedriver.exe')
 
 class MainPage(BasePage):
     def __init__(self,driver):
@@ -30,7 +27,7 @@ class MainPage(BasePage):
         #                 'locator_type': 'xpath',
         #                 'locator_value': '//a[text()="前台首页"]',
         #                 'timeout': 5}
-        element = ElementdataUtils('main_page').get_element_info()
+        element = ElementdataUtils('main','main_page').get_element_info()
         self.brand = element['brand']
         self.count_check = element['count_check']
         self.qiantai = element['qiantai']

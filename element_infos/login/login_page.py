@@ -29,7 +29,7 @@ class LoginPage(BasePage):
         # self.username_input = self.driver.find_element(By.XPATH,'//input[@id="user_name"]')   #属性==  页面上的控件
         # self.password_input = self.driver.find_element(By.XPATH,'//input[@id="user_passwd"]')
         # self.login_button = self.driver.find_element(By.XPATH,'//button[@type="submit"]')
-        element = ElementdataUtils('login_page').get_element_info()
+        element = ElementdataUtils('login','login_page').get_element_info()
         self.input_username = element['input_username']
         self.input_password = element['input_password']
         self.click_login = element['click_login']
