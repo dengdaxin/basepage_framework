@@ -2,14 +2,17 @@ import os
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.action_chains import ActionChains  #鼠标键盘
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from common.config_utils import Config
 from common.log import logger
 
+current_path = os.path.dirname(__file__)
+current_dir = os.path.join(current_path,'..')
 class BasePage(object):
     def __init__(self,driver):
-        self.driver = webdriver.Chrome()
+        self.driver = driver
 
     #浏览器操作封装
     def open_url(self,url):
@@ -76,10 +79,30 @@ class BasePage(object):
         logger.info('获取元素文本，文本为%s'% text)
         return text
 
+    def move_to_element_by_mouse(self,element_info):
+        '''移动鼠标到指定元素位置'''
+        element = self.find_element(element_info)
+        ActionChains(self.driver).move_to_element(element).perform()
+
+    def long_press_element(self,element_info,senconds):
+        '''模拟鼠标长按指定时间后释放'''
+        element = self.find_element(element_info)
+        ActionChains(self.driver).click_and_hold(element).pause(senconds).release(element)
+
     def switch_to_frame(self,element_info):
         '''frame切换'''
         element = self.find_element(element_info)
         self.driver.switch_to_frame(element)
+
+    def screentshot(self,*screentshot_path):
+        '''截图封装'''
+        if len(screentshot_path) == 0:
+            screentshot_filepath = Config.screentshot_path
+        else:
+            screentshot_filepath = screentshot_path[0]
+        now = time.strftime('%Y_%m_%d_H_%M_%S')
+        screentshot_filepath = os.path.join(current_dir,screentshot_filepath,'UiTtest_%s.png' % now)
+        self.driver.get_screenshot_as_file(screentshot_filepath)
 
     def wait(self,seconds=Config.time_out):
         '''固定等待'''

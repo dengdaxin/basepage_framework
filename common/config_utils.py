@@ -1,4 +1,5 @@
 import os
+import time
 import configparser
 
 current_path = os.path.dirname(__file__)
@@ -32,9 +33,18 @@ class ConfigUtils:
         value = float(self.read_ini('default','time_out'))
         return value
 
+    @property
+    def screentshot_path(self):
+        value = self.read_ini('default', 'screent_shot_path')
+        return value
+
 Config = ConfigUtils()
 if __name__=='__main__':
+    current_dir = os.path.dirname(__file__)
     config_utils_obj = Config
     url_path = config_utils_obj.url_path
-    driver_path = config_utils_obj.driver_path
+    now = time.strftime('%Y_%m_%d_H_%M_%S')
+    driver_path = Config.screentshot_path
+    screentshot_filepath = os.path.join(current_dir, '../UiTtest_%s.png' % now)
 
+    print(screentshot_filepath)

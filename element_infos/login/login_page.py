@@ -7,6 +7,7 @@ from common.base_page import BasePage
 from common.element_data_utils import ElementdataUtils
 from common.browser_utils import BrowserUtils
 
+
 class LoginPage(BasePage):
     def __init__(self,driver):
         super().__init__(driver)
@@ -47,10 +48,13 @@ class LoginPage(BasePage):
         # self.login_button.click()
         # logger.info('点击登录按钮')
         self.click(self.click_login)
+        self.screentshot()
+
 
 if __name__=='__main__':
-    # current_path = os.path.dirname(__file__)
-    # driver_path = os.path.join(current_path,'../webdriver/chromedriver.exe')
+    #current_path = os.path.dirname(__file__)
+    #current_dir = os.path.join(current_path,'..')
+    #driver_path = os.path.join(current_path,'../webdriver/chromedriver.exe')
     # driver = webdriver.Chrome(executable_path=driver_path)
     driver = BrowserUtils().get_driver_type()
     loginpage = LoginPage(driver)
@@ -58,3 +62,5 @@ if __name__=='__main__':
     loginpage.input_usernames('admin')
     loginpage.input_passwords('123456')
     loginpage.click_logins()
+
+
