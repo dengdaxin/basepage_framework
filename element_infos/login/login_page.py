@@ -1,12 +1,11 @@
 import os
 import time
 from selenium import webdriver
-from selenium.webdriver.common.by import By
 from common.log import logger
 from common.base_page import BasePage
 from common.element_data_utils import ElementdataUtils
 from common.browser_utils import BrowserUtils
-
+from common.config_utils import Config
 
 class LoginPage(BasePage):
     def __init__(self,driver):
@@ -48,7 +47,7 @@ class LoginPage(BasePage):
         # self.login_button.click()
         # logger.info('点击登录按钮')
         self.click(self.click_login)
-        self.screentshot()
+
 
 
 if __name__=='__main__':
@@ -58,7 +57,7 @@ if __name__=='__main__':
     # driver = webdriver.Chrome(executable_path=driver_path)
     driver = BrowserUtils().get_driver_type()
     loginpage = LoginPage(driver)
-    loginpage.open_url('http://localhost/DBshop/admin')
+    loginpage.open_url(Config.url_path)
     loginpage.input_usernames('admin')
     loginpage.input_passwords('123456')
     loginpage.click_logins()

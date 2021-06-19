@@ -38,6 +38,16 @@ class ConfigUtils:
         value = self.read_ini('default', 'screent_shot_path')
         return value
 
+    @property
+    def get_default_username(self):
+        value = self.read_ini('default', 'username')
+        return value
+
+    @property
+    def get_default_password(self):
+        value = self.read_ini('default', 'password')
+        return value
+
 Config = ConfigUtils()
 if __name__=='__main__':
     current_dir = os.path.dirname(__file__)

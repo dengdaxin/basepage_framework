@@ -1,7 +1,9 @@
 import logging
 import os
+import time
+now = time.strftime('%Y_%m_%d_%H_%M_%S')
 current_path = os.path.dirname(__file__)
-log_path = os.path.join(current_path,'../logs/test.log')
+log_path = os.path.join(current_path,'../logs/%s.log' % now)
 class LogUtils:
     def __init__(self,logfile_path=log_path):
         self.logfile_path = logfile_path

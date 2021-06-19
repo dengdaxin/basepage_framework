@@ -19,6 +19,14 @@ class BasePage(object):
         self.driver.get(url)
         logger.info('打开url地址：%s' % url)
 
+    def close_browser_tab(self):
+        self.driver.close()
+        logger.info('关闭当前tab页')
+
+    def exit_browser(self):
+        self.driver.quit()
+        logger.info('退出浏览器')
+
     def max_browser(self):
         self.driver.maximize_window()
         logger.info('最大化浏览器')
@@ -100,7 +108,7 @@ class BasePage(object):
             screentshot_filepath = Config.screentshot_path
         else:
             screentshot_filepath = screentshot_path[0]
-        now = time.strftime('%Y_%m_%d_H_%M_%S')
+        now = time.strftime('%Y_%m_%d_%H_%M_%S')
         screentshot_filepath = os.path.join(current_dir,screentshot_filepath,'UiTtest_%s.png' % now)
         self.driver.get_screenshot_as_file(screentshot_filepath)
 
