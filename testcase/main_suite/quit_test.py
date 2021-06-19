@@ -3,8 +3,9 @@ from actions.login_action import LoginAction
 from common.browser_utils import BrowserUtils
 from common.base_page import BasePage
 from common.config_utils import Config
+from actions.quit_action import QuitAction
 
-class LoginTest(unittest.TestCase):
+class QuitTest(unittest.TestCase):
     def setUp(self) -> None:
         self.basepage = BasePage(BrowserUtils().get_driver_type())
         self.basepage.max_browser()
@@ -14,17 +15,13 @@ class LoginTest(unittest.TestCase):
     def tearDown(self) -> None:
         self.basepage.close_browser_tab()
 
-    def test_login_success(self):
-        login_action = LoginAction(self.basepage.driver)
-        main_page = login_action.login_success('admin','123456')
-        value = main_page.get_count_text()
-        self.assertEqual(value,'DBShop','test_login_success用例执行失败')
-
-
-    def test_login_fail(self):
-        login_action = LoginAction(self.basepage.driver)
-        login_action.login_fail('admin','123')
-
+    def test_quit(self):
+        login = LoginAction(self.basepage.driver)
+        login.default_login()
+        quit_action = QuitAction(self.basepage.driver)
+        login_page = quit_action.quit()
+        actual_result = login_page.get_title()
+        self.assertEqual(actual_result,'系统管理员后台登录','test_quit用例执行失败')
 
 if __name__=='__main__':
     unittest.main()

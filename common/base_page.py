@@ -45,7 +45,7 @@ class BasePage(object):
 
     def get_title(self):
         value = self.driver.title
-        logger.info('获取网页标题,标题是%s'%value)
+        logger.info('获取网页标题,标题是:%s'%value)
         return value
     #元素操作封装
     def find_element(self,element_info):

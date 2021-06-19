@@ -13,7 +13,7 @@ class LoginAction:
 
     def login_success(self,username,password):
         self.login_action(username,password)
-        #return MainPage(self.login_page.driver)
+        return MainPage(self.login_page.driver)
 
     def login_fail(self,username,password):
         self.login_action(username,password)

@@ -1,20 +1,14 @@
 import os
 from element_infos.login.login_page import LoginPage
+from common.config_utils import Config
 from common.base_page import BasePage
 from common.element_data_utils import ElementdataUtils
 from common.browser_utils import BrowserUtils
-
-current_path = os.path.dirname(__file__)
-driver_path = os.path.join(current_path, '../../webdriver/chromedriver.exe')
+#from actions.login_action import LoginAction
 
 class MainPage(BasePage):
     def __init__(self,driver):
         super().__init__(driver)
-        loginpage = LoginPage(driver)
-        self.open_url('http://localhost/DBshop/admin')
-        loginpage.input_usernames('admin')
-        loginpage.input_passwords('123456')
-        loginpage.click_logins()
         # self.brand = {'element_name':'后台标题',
         #               'locator_type':'xpath',
         #                 'locator_value':'//a[@class="brand"]',
@@ -31,6 +25,7 @@ class MainPage(BasePage):
         self.brand = element['brand']
         self.count_check = element['count_check']
         self.qiantai = element['qiantai']
+        self.quit = element['quit']
         # self.driver = loginpage.driver  #把login_page的对象转移到mainpage
         # self.brand = self.driver.find_element(By.XPATH,'//a[@class="brand"]')
         # self.count_check = self.driver.find_element(By.XPATH,'/html/body/div[1]/div/a')
@@ -47,10 +42,14 @@ class MainPage(BasePage):
         # self.qiantai.click()
         self.click(self.qiantai)
 
+    def quit_system(self):
+        self.click(self.quit)
 
 if __name__=='__main__':
     driver = BrowserUtils().get_driver_type()
-    mainpage = MainPage(driver)
-    text = mainpage.get_count_text()
-    print(text)
-    mainpage.goto_qiantai()
+    # driver.get(Config.url_path)
+    # main_page = LoginAction(driver).default_login()
+    # p = MainPage(driver)
+    # text = p.get_count_text()
+    # print(text)
+    # p.goto_qiantai()

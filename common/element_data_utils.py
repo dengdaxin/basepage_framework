@@ -4,8 +4,7 @@ from common.config_utils import Config
 
 current = os.path.dirname(__file__)
 excel_path = os.path.join(current,'../element_info_datas/element_infos.xlsx')
-print(current)
-print(excel_path)
+
 class ElementdataUtils:
     def __init__(self,module_name,page_name,excel_path=excel_path):
         self.excel_path = excel_path
@@ -27,6 +26,6 @@ class ElementdataUtils:
         return element_infos
 
 if __name__=='__main__':
-    element = ElementdataUtils('login','login_page').get_element_info()
+    element = ElementdataUtils('main','main_page').get_element_info()
     for i,j in element.items():
         print(i,j)
