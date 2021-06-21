@@ -4,16 +4,16 @@ from common.browser_utils import BrowserUtils
 from common.base_page import BasePage
 from common.config_utils import Config
 from actions.quit_action import QuitAction
-
-class QuitTest(unittest.TestCase):
-    def setUp(self) -> None:
-        self.basepage = BasePage(BrowserUtils().get_driver_type())
-        self.basepage.max_browser()
-        self.basepage.time()
-        self.basepage.open_url(Config.url_path)
-
-    def tearDown(self) -> None:
-        self.basepage.close_browser_tab()
+from common.selenium_base_case import SeleniumBaseCase
+class QuitTest(SeleniumBaseCase):
+    # def setUp(self) -> None:
+    #     self.basepage = BasePage(BrowserUtils().get_driver_type())
+    #     self.basepage.max_browser()
+    #     self.basepage.time()
+    #     self.basepage.open_url(Config.url_path)
+    #
+    # def tearDown(self) -> None:
+    #     self.basepage.close_browser_tab()
 
     def test_quit(self):
         login = LoginAction(self.basepage.driver)
