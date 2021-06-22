@@ -49,7 +49,11 @@ class BasePage(object):
         return value
     #元素操作封装
     def find_element(self,element_info):
-
+        '''
+        根据提供的元素参数信息进行元素查找
+        :param element_info: 元素信息参数，字典类型{}
+        :return: element对象
+        '''
         locator_type_name = element_info['locator_type']
         locator_value_info = element_info['locator_value']
         locator_timeout = element_info['timeout']

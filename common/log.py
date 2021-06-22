@@ -22,5 +22,4 @@ class LogUtils:
 
 logger = LogUtils()
 if __name__=='__main__':
-    log_utils = LogUtils()
-    log_utils.info('dbshop')
+    logger.info('999')

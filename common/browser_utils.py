@@ -2,6 +2,7 @@ import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from common.config_utils import Config
+from common.log import logger
 
 current_path = os.path.dirname(__file__)
 driver_path = os.path.join(current_path,'..' + Config.driver_path)
@@ -30,11 +31,13 @@ class BrowserUtils():
         chrome_options.add_experimental_option('excludeSwitches',['enable-automation']) #取消chrome受自动化工具的提示
         chromedriver_path = os.path.join(driver_path,'chromedriver.exe')
         driver = webdriver.Chrome(options=chrome_options,executable_path=chromedriver_path)
+        logger.info('初始化并启动chrome浏览器')
         return driver
 
     def __get_firefox_driver(self):
         firefoxdriver_path = os.path.join(driver_path,'geckodriver.exe')
         driver = webdriver.Firefox(executable_path=firefoxdriver_path)
+        logger.info('初始化并启动火狐浏览器')
         return driver
 
     def __get_ie_driver(self):
