@@ -16,8 +16,11 @@ class BasePage(object):
 
     #浏览器操作封装
     def open_url(self,url):
-        self.driver.get(url)
-        logger.info('打开url地址：%s' % url)
+        try:
+            self.driver.get(url)
+            logger.info('打开url地址：%s' % url)
+        except Exception as e:
+            logger.error('不能打开指定的网址，原因是：%s' % e.__str__())
 
     def close_browser_tab(self):
         self.driver.close()
@@ -54,36 +57,47 @@ class BasePage(object):
         :param element_info: 元素信息参数，字典类型{}
         :return: element对象
         '''
-        locator_type_name = element_info['locator_type']
-        locator_value_info = element_info['locator_value']
-        locator_timeout = element_info['timeout']
-        if locator_type_name == 'id':
-            locator_type = By.ID
-        elif locator_type_name == 'class':
-            locator_type = By.CLASS_NAME
-        elif locator_type_name == 'xpath':
-            locator_type = By.XPATH
-        elif locator_type_name == 'css':
-            locator_type = By.CSS_SELECTOR
-        elif locator_type_name == 'link':
-            locator_type = By.LINK_TEXT
-        elif locator_type_name == 'tag_name':
-            locator_type = By.TAG_NAME
-        elif locator_type_name == 'name':
-            locator_type = By.NAME
-        element = WebDriverWait(self.driver, locator_timeout).until(lambda x: x.find_element(locator_type, locator_value_info))
-        logger.info('[%s]元素识别成功' % element_info['element_name'] )
+        try:
+            locator_type_name = element_info['locator_type']
+            locator_value_info = element_info['locator_value']
+            locator_timeout = element_info['timeout']
+            if locator_type_name == 'id':
+                locator_type = By.ID
+            elif locator_type_name == 'class':
+                locator_type = By.CLASS_NAME
+            elif locator_type_name == 'xpath':
+                locator_type = By.XPATH
+            elif locator_type_name == 'css':
+                locator_type = By.CSS_SELECTOR
+            elif locator_type_name == 'link':
+                locator_type = By.LINK_TEXT
+            elif locator_type_name == 'tag_name':
+                locator_type = By.TAG_NAME
+            elif locator_type_name == 'name':
+                locator_type = By.NAME
+            element = WebDriverWait(self.driver, locator_timeout).until(lambda x: x.find_element(locator_type, locator_value_info))
+            logger.info('[%s]元素识别成功' % element_info['element_name'] )
+        except Exception as e:
+            logger.error('[%s]元素识别失败，原因是：%s' % (element_info['element_name'],e.__str__()))
+            self.screentshot()
         return element
 
     def click(self,element_info):
         element = self.find_element(element_info)
-        element.click()
-        logger.info('[%s]元素点击操作成功' % element_info['element_name'])
+        try:
+            element.click()
+            logger.info('[%s]元素点击操作成功' % element_info['element_name'])
+        except Exception as e:
+            logger.error('[%s]元素点击操作失败,原因是：%s' % (element_info['element_name'],e.__str__()))
 
     def input(self,element_info,content):
         element = self.find_element(element_info)
-        element.send_keys(content)
-        logger.info('[%s]元素输入内容成功，输入的内容是：%s' % (element_info['element_name'],content) )
+        try:
+            element.send_keys(content)
+            logger.info('[%s]元素输入内容成功，输入的内容是：%s' % (element_info['element_name'],content) )
+        except Exception as e:
+            logger.error('[%s]元素输入内容失败，原因是：%s' % (element_info['element_name'],e.__str__()))
+            self.screentshot()
 
     def get_text(self,element_info):
         element = self.find_element(element_info)
