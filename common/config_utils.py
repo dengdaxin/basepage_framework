@@ -48,6 +48,21 @@ class ConfigUtils:
         value = self.read_ini('default', 'password')
         return value
 
+    @property
+    def get_log_path(self):
+        value = self.read_ini('default', 'log_path')
+        return value
+
+    @property
+    def get_log_level(self):
+        value = self.read_ini('default', 'log_level')
+        return int(value)
+
+    @property
+    def get_testdata_path(self):
+        value = self.read_ini('default', 'test_data_path')
+        return value
+
 Config = ConfigUtils()
 if __name__=='__main__':
     current_dir = os.path.dirname(__file__)
@@ -57,4 +72,4 @@ if __name__=='__main__':
     driver_path = Config.screentshot_path
     screentshot_filepath = os.path.join(current_dir, '../UiTtest_%s.png' % now)
 
-    print(screentshot_filepath)
+    print(Config.get_testdata_path)

@@ -6,7 +6,7 @@ from selenium.webdriver.common.action_chains import ActionChains  #鼠标键盘
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from common.config_utils import Config
-from common.log import logger
+from common.log_utils import logger
 
 current_path = os.path.dirname(__file__)
 current_dir = os.path.join(current_path,'..')

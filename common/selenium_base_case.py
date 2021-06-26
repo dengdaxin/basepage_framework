@@ -2,7 +2,8 @@ import unittest
 from common.base_page import BasePage
 from common.browser_utils import BrowserUtils
 from common.config_utils import Config
-from common.log import logger
+from common.log_utils import logger
+
 class SeleniumBaseCase(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
@@ -20,6 +21,6 @@ class SeleniumBaseCase(unittest.TestCase):
         logger.info('-----测试方法执行完毕-----')
         self.basepage.close_browser_tab()
 
-    def tearDownClass(cls) -> None:
-        logger.info('======测试类执行完毕=====')
+    # def tearDownClass(cls) -> None:
+    #     logger.info('======测试类执行完毕=====')
 
