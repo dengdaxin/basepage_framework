@@ -15,11 +15,12 @@ class LoginTest(SeleniumBaseCase):
     #
     # def tearDown(self) -> None:
     #     self.basepage.close_browser_tab()
-
+    test_class_data = TestDataUtils('login_suite', 'LoginTest').convert_exceldata_to_testdata()
     def setUp(self) -> None:
         super().setUp()
-        self.test_class_data = TestDataUtils('login_suite','LoginTest').convert_exceldata_to_testdata()
+        #self.test_class_data = TestDataUtils('login_suite','LoginTest').convert_exceldata_to_testdata()
 
+    @unittest.skipIf(test_class_data['test_login_success']['isnot'],'')  #跳过该测试方法
     def test_login_success(self):
         test_data = self.test_class_data['test_login_success']
         self._testMethodDoc = test_data['test_name']
@@ -28,8 +29,10 @@ class LoginTest(SeleniumBaseCase):
         value = main_page.get_count_text()
         self.assertEqual(value,test_data['excepted_result'],'test_login_success用例执行失败')
 
+    @unittest.skipIf(test_class_data['test_login_fail']['isnot'], '')
     def test_login_fail(self):
         test_data = self.test_class_data['test_login_fail']
+        self._testMethodDoc = test_data['test_name']
         login_action = LoginAction(self.basepage.driver)
         login_action.login_fail(test_data['test_parameter'].get('username'),test_data['test_parameter'].get('password'))
         self.assertEqual('测试',test_data['excepted_result'],'test_login_fail测试失败')

@@ -1,0 +1,46 @@
+[2021-06-26 14:14:48,378] selenium_base_case.py->setUpClass line:10 [INFO] : ======测试类开始执行=====
+[2021-06-26 14:14:48,378] selenium_base_case.py->setUp line:14 [INFO] : -----测试开始执行-----
+2021-06-26 14:14:49,539 - Logger - INFO - 初始化并启动chrome浏览器
+[2021-06-26 14:14:49,539] log.py->info line:19 [INFO] : 初始化并启动chrome浏览器
+[2021-06-26 14:14:49,663] base_page.py->max_browser line:35 [INFO] : 最大化浏览器
+[2021-06-26 14:14:50,347] base_page.py->open_url line:21 [INFO] : 打开url地址：http://localhost/DBshop/admin
+[2021-06-26 14:14:50,368] base_page.py->find_element line:79 [INFO] : [用户名输入框]元素识别成功
+[2021-06-26 14:14:50,448] base_page.py->input line:97 [INFO] : [用户名输入框]元素输入内容成功，输入的内容是：admin
+[2021-06-26 14:14:50,462] base_page.py->find_element line:79 [INFO] : [密码输入框]元素识别成功
+[2021-06-26 14:14:50,526] base_page.py->input line:97 [INFO] : [密码输入框]元素输入内容成功，输入的内容是：123
+[2021-06-26 14:14:50,541] base_page.py->find_element line:79 [INFO] : [登录按钮]元素识别成功
+[2021-06-26 14:14:51,128] base_page.py->click line:89 [INFO] : [登录按钮]元素点击操作成功
+[2021-06-26 14:14:54,736] base_page.py->close_browser_tab line:27 [INFO] : 关闭当前tab页
+[2021-06-26 14:14:54,736] selenium_base_case.py->tearDown line:26 [INFO] : -----测试方法执行完毕-----
+[2021-06-26 14:14:54,738] selenium_base_case.py->setUp line:14 [INFO] : -----测试开始执行-----
+2021-06-26 14:14:55,952 - Logger - INFO - 初始化并启动chrome浏览器
+[2021-06-26 14:14:55,952] log.py->info line:19 [INFO] : 初始化并启动chrome浏览器
+[2021-06-26 14:14:56,080] base_page.py->max_browser line:35 [INFO] : 最大化浏览器
+[2021-06-26 14:14:56,661] base_page.py->open_url line:21 [INFO] : 打开url地址：http://localhost/DBshop/admin
+[2021-06-26 14:14:56,683] base_page.py->find_element line:79 [INFO] : [用户名输入框]元素识别成功
+[2021-06-26 14:14:56,775] base_page.py->input line:97 [INFO] : [用户名输入框]元素输入内容成功，输入的内容是：admin
+[2021-06-26 14:14:56,790] base_page.py->find_element line:79 [INFO] : [密码输入框]元素识别成功
+[2021-06-26 14:14:56,880] base_page.py->input line:97 [INFO] : [密码输入框]元素输入内容成功，输入的内容是：123456
+[2021-06-26 14:14:56,897] base_page.py->find_element line:79 [INFO] : [登录按钮]元素识别成功
+[2021-06-26 14:14:58,107] base_page.py->click line:89 [INFO] : [登录按钮]元素点击操作成功
+[2021-06-26 14:14:58,130] base_page.py->find_element line:79 [INFO] : [后台名称]元素识别成功
+[2021-06-26 14:14:58,150] base_page.py->get_text line:105 [INFO] : 获取元素文本，文本为DBShop
+[2021-06-26 14:14:58,210] base_page.py->close_browser_tab line:27 [INFO] : 关闭当前tab页
+[2021-06-26 14:14:58,211] selenium_base_case.py->tearDown line:26 [INFO] : -----测试方法执行完毕-----
+[2021-06-26 14:14:58,211] selenium_base_case.py->setUpClass line:10 [INFO] : ======测试类开始执行=====
+[2021-06-26 14:14:58,211] selenium_base_case.py->setUp line:14 [INFO] : -----测试开始执行-----
+2021-06-26 14:14:59,445 - Logger - INFO - 初始化并启动chrome浏览器
+[2021-06-26 14:14:59,445] log.py->info line:19 [INFO] : 初始化并启动chrome浏览器
+[2021-06-26 14:14:59,577] base_page.py->max_browser line:35 [INFO] : 最大化浏览器
+[2021-06-26 14:15:00,165] base_page.py->open_url line:21 [INFO] : 打开url地址：http://localhost/DBshop/admin
+[2021-06-26 14:15:00,187] base_page.py->find_element line:79 [INFO] : [用户名输入框]元素识别成功
+[2021-06-26 14:15:00,264] base_page.py->input line:97 [INFO] : [用户名输入框]元素输入内容成功，输入的内容是：admin
+[2021-06-26 14:15:00,280] base_page.py->find_element line:79 [INFO] : [密码输入框]元素识别成功
+[2021-06-26 14:15:00,361] base_page.py->input line:97 [INFO] : [密码输入框]元素输入内容成功，输入的内容是：123456
+[2021-06-26 14:15:00,379] base_page.py->find_element line:79 [INFO] : [登录按钮]元素识别成功
+[2021-06-26 14:15:01,631] base_page.py->click line:89 [INFO] : [登录按钮]元素点击操作成功
+[2021-06-26 14:15:01,661] base_page.py->find_element line:79 [INFO] : [退出系统]元素识别成功
+[2021-06-26 14:15:02,857] base_page.py->click line:89 [INFO] : [退出系统]元素点击操作成功
+[2021-06-26 14:15:02,873] base_page.py->get_title line:51 [INFO] : 获取网页标题,标题是:系统管理员后台登录
+[2021-06-26 14:15:02,948] base_page.py->close_browser_tab line:27 [INFO] : 关闭当前tab页
+[2021-06-26 14:15:02,948] selenium_base_case.py->tearDown line:26 [INFO] : -----测试方法执行完毕-----

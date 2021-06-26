@@ -63,6 +63,16 @@ class ConfigUtils:
         value = self.read_ini('default', 'test_data_path')
         return value
 
+    @property
+    def get_report_path(self):
+        value = self.read_ini('default', 'report_path')
+        return value
+
+    @property
+    def get_case_path(self):
+        value = self.read_ini('default', 'case_path')
+        return value
+
 Config = ConfigUtils()
 if __name__=='__main__':
     current_dir = os.path.dirname(__file__)

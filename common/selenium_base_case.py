@@ -18,8 +18,12 @@ class SeleniumBaseCase(unittest.TestCase):
         self.basepage.open_url(self.url)
 
     def tearDown(self) -> None:
-        logger.info('-----测试方法执行完毕-----')
+        errors = self._outcome.errors
+        for test,exc_info in errors:
+            if exc_info:
+                self.basepage.screentshot()
         self.basepage.close_browser_tab()
+        logger.info('-----测试方法执行完毕-----')
 
     # def tearDownClass(cls) -> None:
     #     logger.info('======测试类执行完毕=====')
